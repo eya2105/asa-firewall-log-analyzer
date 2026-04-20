@@ -1,5 +1,6 @@
 import re  # Module pour utiliser les expressions régulières
-import math  # Module pour faire des calculs mathématiques (ex. arrondi supérieur avec ceil)
+import math  
+import argparse
 
 
 # a. Fonction pour afficher le contenu d’un fichier log page par page
@@ -84,7 +85,10 @@ def calculer_taux_connexions_refusees(chemin_fichier):
 # Code principal – exécution des fonctions
 if __name__ == "__main__":
     # Définition du chemin vers le fichier log
-    chemin_log = r"C:/Users/lenovo/Desktop/tp5/asa-fix.log"
+    parser = argparse.ArgumentParser(description="Cisco ASA Firewall Log Analyzer")
+    parser.add_argument("log_file", help="Path to the ASA log file")
+    args = parser.parse_args()
+    chemin_log = args.log_file
 
     # Appel de chaque fonction avec affichage des résultats
     print("\n=== a. Affichage page par page ===")
