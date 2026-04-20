@@ -63,15 +63,12 @@ def calculer_taux_connexions_refusees(chemin_fichier):
 
     with open(chemin_fichier, 'r', encoding='utf-8', errors='ignore') as fichier:
         for ligne in fichier:
-           
-           
-           
                 if 'permitted' in ligne:  # Connexion autorisée
                     total_connexions += 1
                 elif 'Deny' in ligne:  # Connexion refusée
                     connexions_refusees += 1
                     total_connexions += 1
-
+                    
     # Affichage des résultats
     if total_connexions == 0:
         print("Aucune connexion détectée.")
